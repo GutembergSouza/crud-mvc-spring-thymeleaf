@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,51 +44,51 @@
 <body>
     <h1 class="text-center">Novo Cliente</h1>
 
-  <div class="container">
-    <form th:action="@{/cliente}" th:object="${cliente}" method="post">
+  <div class="container form-inline">
+    <form th:action="@{/cliente}" th:object="${cliente}" method="post" class="form-control-md">
            
 
         
-          <input class="form-control" type="text" name="empresa"   id="empresa"  th:field="*{empresa}"     th:placeholder="Empresa"/>
+          <input class="form-control " type="text" name="empresa"   id="empresa"  th:field="*{empresa}"     th:placeholder="Empresa"/>
           <span th:if="${#fields.hasErrors('empresa')}" th:errors="*{empresa}">Empresa Error</span>
-           
-          <input class="form-control" type="text" name="cnpj" th:field="*{cnpj}" th:placeholder="Cnpj"/> 
+
+          <input class="form-control " type="text" name="cnpj" th:field="*{cnpj}" th:placeholder="Cnpj"/>
           <span th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}">Cnpj Error</span>
 
           <input class="form-control" type="text" name="e_cac" th:field="*{e_cac}" th:placeholder="E_cac"/>
           <span th:if="${#fields.hasErrors('e_cac')}" th:errors="*{e_cac}">E_cac Error</span>
           
 
-          <input  class="form-control" type="text" name="n_social" th:field="*{n_social}" th:placeholder="N_social"/> 
+          <input  class="form-control" type="text" name="n_social" th:field="*{n_social}" th:placeholder="N_social"/>
           <span th:if="${#fields.hasErrors('n_social')}" th:errors="*{n_social}">N_social Error</span>
           
 
-          <input class="form-control" type="text" name="cpf" th:field="*{cpf}" th:placeholder="cpf"/> 
+          <input class="form-control" type="text" name="cpf" th:field="*{cpf}" th:placeholder="cpf"/>
           <span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}">cpf Error</span>
           
 
-          <input  class="form-control" type="text" name="rg" th:field="*{rg}" th:placeholder="rg"/> 
+          <input  class="form-control" type="text" name="rg" th:field="*{rg}" th:placeholder="rg"/>
           <span th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}">rg Error</span>
           
 
-          <input class="form-control"  type="text" name="dataDeNascimento" th:field="*{dataDeNascimento}" th:placeholder="dataDeNascimento"/> 
+          <input class="form-control"  type="text" name="dataDeNascimento" th:field="*{dataDeNascimento}" th:placeholder="dataDeNascimento"/>
           <span th:if="${#fields.hasErrors('dataDeNascimento')}" th:errors="*{dataDeNascimento}">dataDeNascimento Error</span>
         
 
 
-          <input class="form-control" type="text" name="tituloDeEleitor" th:field="*{tituloDeEleitor}" th:placeholder="tituloDeEleitor"/> 
+          <input class="form-control" type="text" name="tituloDeEleitor" th:field="*{tituloDeEleitor}" th:placeholder="tituloDeEleitor"/>
           <span th:if="${#fields.hasErrors('tituloDeEleitor')}" th:errors="*{tituloDeEleitor}">tituloDeEleitor Error</span>
           
 
-          <input class="form-control" type="text" name="rua" th:field="*{rua}" th:placeholder="rua"/> 
+          <input class="form-control" type="text" name="rua" th:field="*{rua}" th:placeholder="rua"/>
           <span th:if="${#fields.hasErrors('rua')}" th:errors="*{rua}">rua Error</span>
           
 
-          <input class="form-control" type="text" name="numero" th:field="*{numero}" th:placeholder="Numero"/> 
+          <input class="form-control" type="text" name="numero" th:field="*{numero}" th:placeholder="Numero"/>
           <span th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}">Numero Error</span>
         
 
-          <input class="form-control" type="text" name="bairro" th:field="*{bairro}" th:placeholder="Bairro"/> 
+          <input class="form-control" type="text" name="bairro" th:field="*{bairro}" th:placeholder="Bairro"/>
           <span th:if="${#fields.hasErrors('bairro')}" th:errors="*{rg}">Bairro Error</span>
           
 
@@ -96,7 +96,7 @@
           <span th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}">Cidade Error</span>
           
 
-          <input class="form-control" type="text" name="estado" th:field="*{estado}" th:placeholder="Estado"/> 
+          <input class="form-control" type="text" name="estado" th:field="*{estado}" th:placeholder="Estado"/>
           <span th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}">Estado Error</span>
           
 
@@ -104,19 +104,20 @@
           <span th:if="${#fields.hasErrors('cep')}" th:errors="*{rg}">Cep Error</span>
         
 
-          <input class="form-control" type="text" name="email" th:field="*{email}" th:placeholder="email"/> 
+          <input class="form-control" type="text" name="email" th:field="*{email}" th:placeholder="email"/>
           <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</span>
-        
 
-      
+
+
         <br>
-        <button class="btn btn-primary" type="submit">salvar</button>
-      
+        <br/>
+        <button class="btn btn-primary" type="submit">Salvar</button>
+        <button class="btn btn-primary" type="reset">Limpar</button>
     </form>
   </div>
-  
 
-    <a th:href="@{/cliente}">Cliente</a>
+
+
 
 </body>
 
