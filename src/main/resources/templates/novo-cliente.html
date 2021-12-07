@@ -46,7 +46,7 @@
            
         <div class="form-group">
           <label for="input-empresa">Empresa: </label>
-          <input id="input-empresa" class="form-control " type="text" name="empresa"   id="empresa"  th:field="*{empresa}"     th:placeholder="Empresa"/>
+          <input id="input-empresa" class="form-control " type="text" name="empresa"   th:field="*{empresa}"     th:placeholder="Empresa"/>
           <span th:if="${#fields.hasErrors('empresa')}" th:errors="*{empresa}">Empresa Error</span>
         </div>
 
@@ -99,13 +99,13 @@
         </div>
 
         <div class="form-group">
-          <label for="input-numero">Nº</label>
+          <label for="input-numero">Nº </label>
           <input id="input-numero" class="form-control" type="text" name="numero" th:field="*{numero}" th:placeholder="Numero"/>
           <span th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}">Numero Error</span>
         </div>
 
         <div class="form-group">
-          <label for="input-bairro">Bairro:</label>
+          <label for="input-bairro">Bairro: </label>
           <input id="input-bairro" class="form-control" type="text" name="bairro" th:field="*{bairro}" th:placeholder="Bairro"/>
           <span th:if="${#fields.hasErrors('bairro')}" th:errors="*{rg}">Bairro Error</span>
         </div>
@@ -123,7 +123,7 @@
 
         </div>
         <div class="form-group">
-          <label for="input-cep">CEP:</label>
+          <label for="input-cep">CEP:  </label>
           <input id="input-cep" class="form-control" type="text" name="cep" th:field="*{cep}" th:placeholder="Cep"/>
           <span th:if="${#fields.hasErrors('cep')}" th:errors="*{rg}">Cep Error</span>
 
