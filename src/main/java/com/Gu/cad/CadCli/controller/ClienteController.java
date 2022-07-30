@@ -20,7 +20,7 @@ public class ClienteController {
     @Autowired
     ClienteService service;
 
-    @GetMapping("/cliente")
+    @GetMapping("")
     public ModelAndView clientes(){
         return service.clientes();
     }
