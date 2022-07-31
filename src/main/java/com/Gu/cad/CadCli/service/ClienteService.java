@@ -31,7 +31,7 @@ public class ClienteService {
     public String createCliente(Model m){
         m.addAttribute("cliente", new Cliente());
 
-        return "novo-cliente";
+        return "cliente";
     }
 
     public String createCliente(Cliente cliente, BindingResult result, RedirectAttributes redirect){
