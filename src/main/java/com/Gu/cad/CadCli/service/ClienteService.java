@@ -42,7 +42,7 @@ public class ClienteService {
         }
 
         repo.save(cliente);
-        rd.addFlashAttribute("alertClass","alert-success  alert-dismissible ");
+        redirect.addFlashAttribute("alertClass","alert-success  alert-dismissible ");
         redirect.addFlashAttribute("message","Cliente cadastrado com sucesso!");
 
         return "redirect:/";
