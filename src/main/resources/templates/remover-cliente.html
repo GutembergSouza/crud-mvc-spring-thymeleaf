@@ -44,7 +44,19 @@
 <h2 class="text-center">Remover Cliente</h2>
 <br>
 
-<form th:action="@{/remover-cliente}" th:object="${cliente}" method="delete"></form>
+
+    <form action="#" th:action="@{/delete-cliente}" th:object="${Long}" method="post" class="form-control-md">
+
+        <input id="input-empresa" class="form-control " type="text" name="id"  />
+
+
+        <span class="container">
+              <button class="btn btn-primary" type="submit">Salvar</button>
+              <button class="btn btn-primary" type="reset">Limpar</button>
+        </span>
+    </form>
+
+
 
 </body>
 </html>

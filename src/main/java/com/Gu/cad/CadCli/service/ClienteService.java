@@ -8,6 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.tags.HtmlEscapeTag;
+import org.w3c.dom.html.HTMLDivElement;
+import org.w3c.dom.html.HTMLElement;
+
+import javax.swing.text.html.HTML;
 
 @Service
 public class ClienteService {
@@ -25,9 +30,6 @@ public class ClienteService {
     }
 
 
-
-
-
     public String createCliente(Model m){
         m.addAttribute("cliente", new Cliente());
 
@@ -40,11 +42,19 @@ public class ClienteService {
         }
 
         repo.save(cliente);
+        rd.addFlashAttribute("alertClass","alert-success  alert-dismissible ");
         redirect.addFlashAttribute("message","Cliente cadastrado com sucesso!");
 
         return "redirect:/";
     }
 
+    public String deleteCliente(String id, RedirectAttributes rd){
+
+        repo.deleteById(Long.parseLong(id));
+        rd.addFlashAttribute("alertClass","alert-success  alert-dismissible ");
+        rd.addFlashAttribute("message" , "Deletado Com Sucesso!");
+        return  "redirect:/";
+    }
 
 
 
@@ -61,21 +71,6 @@ public class ClienteService {
         return "alterar-cliente";
     }
 
-
-
-
-
-    public ModelAndView removerCliente(){
-        final ModelAndView mv = new ModelAndView();
-        mv.setViewName("remover-cliente");
-        return mv;
-    }
-
-    public String removerCliente(Model m){
-        m.addAttribute("cliente", new Cliente());
-
-        return "remover-cliente";
-    }
 
 
 
