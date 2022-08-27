@@ -26,12 +26,6 @@
             <li class="nav-item">
               <a class="nav-link" href="#" th:href="@{/novo-cliente}">Novo</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"  th:href="@{/alterar-cliente}">Alterar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"  th:href="@{/remover-cliente}">Remover</a>
-            </li>
           </ul>
           <span class="navbar-text">
             Systema para cadastro de Clientes
@@ -51,6 +45,7 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col"  class="align-middle text-center"> Ações </th>
+                <th scope="col"  class="align-middle text-center"> ID </th>
                 <th scope="col"  class="align-middle text-center"> EMPRESA </th>
                 <th scope="col"  class="align-middle text-center"> CNPJ </th>
                 <th scope="col"  class="align-middle text-center"> E-CAC </th>
@@ -74,7 +69,9 @@
 
                 <td>
                     <a th:href="@{/cliente/delete/__${cliente.id}__}" class="btn btn-danger">Delete</a>
+                    <a th:href="@{/alterarCliente/__${cliente.id}__}" class="btn btn-danger">Atualizar</a>
                 </td>
+                <td th:text="${cliente.id}"> </td>
                 <td th:text="${cliente.empresa}"> </td>
                 <td th:text="${cliente.cnpj}"> </td>
                 <td th:text="${cliente.e_cac}"> </td>

@@ -8,11 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.tags.HtmlEscapeTag;
-import org.w3c.dom.html.HTMLDivElement;
-import org.w3c.dom.html.HTMLElement;
-
-import javax.swing.text.html.HTML;
 
 @Service
 public class ClienteService {
@@ -22,6 +17,7 @@ public class ClienteService {
 
     // getmaping (/clientes)
     public ModelAndView clientes(){
+
         final ModelAndView mv = new ModelAndView();
         mv.setViewName("cliente");
         mv.addObject("allcliente", repo.findAll());
@@ -45,7 +41,7 @@ public class ClienteService {
         redirect.addFlashAttribute("alertClass","alert-success  alert-dismissible ");
         redirect.addFlashAttribute("message","Cliente cadastrado com sucesso!");
 
-        return "redirect:/";
+        return "redirect:/clientes";
     }
 
     public String deleteCliente(String id, RedirectAttributes rd){
@@ -53,26 +49,33 @@ public class ClienteService {
         repo.deleteById(Long.parseLong(id));
         rd.addFlashAttribute("alertClass","alert-success  alert-dismissible ");
         rd.addFlashAttribute("message" , "Deletado Com Sucesso!");
-        return  "redirect:/";
+        return  "redirect:/clientes";
     }
 
 
 
 
-    public ModelAndView alterarCliente(){
+
+    public ModelAndView clienteById(long id) {
+
         final ModelAndView mv = new ModelAndView();
-        mv.setViewName("alterar-cliente");
+        mv.setViewName("alterarCliente");
+        mv.addObject("cliente", repo.getById(id));
+
         return mv;
     }
 
-    public String alterarCliente(Model m){
-        m.addAttribute("cliente", new Cliente());
+    public String alterarCliente(Cliente cliente, BindingResult result, RedirectAttributes redirect, long id){
+        if(result.hasErrors()){
+            System.out.println(result.getAllErrors());
+            return "alterarCliente";
+        }
 
-        return "alterar-cliente";
+        repo.save(cliente);
+        redirect.addFlashAttribute("alertClass","alert-success  alert-dismissible ");
+        redirect.addFlashAttribute("message","Cliente atualizado com sucesso!");
+
+        return "redirect:/clientes";
     }
-
-
-
-
 
 }

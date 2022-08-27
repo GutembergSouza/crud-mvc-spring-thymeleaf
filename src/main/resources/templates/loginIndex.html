@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:href="@{/css/loginStyle.css}" rel="stylesheet" />
+    <title>Login Cad_Cli</title>
+
+    <script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+  <!------ Include the above in your HEAD tag ---------->
+  
+  <div class="sidenav">
+           <div class="login-main-text">
+              <h2>Cad_Cli. <br> Sua base de Clientes</h2>
+              <p>Onde você estiver!</p>
+           </div>
+        </div>
+        <div class="main">
+           <div class="col-md-6 col-sm-12">
+              <div class="login-form">
+                 <form th:action="@{/}" th:object="${login}" method="post">
+                    <div class="form-group">
+                       <label for="email">E-mail</label>
+                       <input id="email" name="email" type="email" class="form-control" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                       <label for="senha">Senha</label>
+                       <input id="senha" name="senha" type="password" class="form-control" placeholder="Senha">
+                        <div  th:if="${message}" th:text="${message}" th:class="${'alert alert-danger'}" th:role="alert"/>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Entrar</button>
+                    <button type="reset" class="btn btn-dark">Limpar</button>
+                 </form>
+              </div>
+           </div>
+        </div>
+
+</body>
+</html>

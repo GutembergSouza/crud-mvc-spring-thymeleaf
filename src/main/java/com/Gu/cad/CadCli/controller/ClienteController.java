@@ -4,7 +4,6 @@ package com.Gu.cad.CadCli.controller;
 import com.Gu.cad.CadCli.model.Cliente;
 import com.Gu.cad.CadCli.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,7 +18,7 @@ public class ClienteController {
     @Autowired
     ClienteService service;
 
-    @GetMapping("/")
+    @GetMapping("/clientes")
     public ModelAndView clientes(){
         return service.clientes();
     }
@@ -29,15 +28,21 @@ public class ClienteController {
         return service.createCliente(model);
     }
 
-    @PostMapping("/cliente")
+    @PostMapping("/createCliente")
     public String createCliente(@Valid @ModelAttribute Cliente cliente, BindingResult result, RedirectAttributes redirect){
         return service.createCliente(cliente, result, redirect);
     }
 
-    @GetMapping("/alterar-cliente")
-    public ModelAndView alterarCliente(){
-        return service.alterarCliente();
+    @GetMapping("/alterarCliente/{id}")
+    public ModelAndView alterarCliente(@PathVariable(name="id") long id){
+
+        return service.clienteById(id);
     }
+    @PostMapping("/alterarCliente/{id}")
+    public String alterarCliente(@Valid @ModelAttribute Cliente cliente, BindingResult result, RedirectAttributes redirect, @PathVariable long id){
+        return service.createCliente(cliente, result, redirect);
+    }
+
 
 
     @GetMapping("/cliente/delete/{id}")
@@ -45,6 +50,7 @@ public class ClienteController {
         return service.deleteCliente(id, rd);
 
     }
+
 
 
 }
