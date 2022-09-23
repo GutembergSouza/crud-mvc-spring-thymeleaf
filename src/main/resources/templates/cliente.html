@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="textoNavbar">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#" th:href="@{/}">Clientes<span class="sr-only">(Página atual)</span></a>
+              <a class="nav-link" href="#" th:href="@{/clientes}">Clientes<span class="sr-only">(Página atual)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" th:href="@{/novo-cliente}">Novo</a>
@@ -44,49 +44,29 @@
     <table class="table table-md table-bordered">
         <thead class="thead-dark">
             <tr>
-                <th scope="col"  class="align-middle text-center"> Ações </th>
+                <th scope="col"  colspan="2"  class="align-middle text-center"> Ações </th>
                 <th scope="col"  class="align-middle text-center"> ID </th>
-                <th scope="col"  class="align-middle text-center"> EMPRESA </th>
-                <th scope="col"  class="align-middle text-center"> CNPJ </th>
-                <th scope="col"  class="align-middle text-center"> E-CAC </th>
-                <th scope="col"  class="align-middle text-center"> Nº SOCIAL </th>
                 <th scope="col"  class="align-middle text-center"> CPF </th>
                 <th scope="col"  class="align-middle text-center"> RG </th>
                 <th scope="col"  class="align-middle text-center"> DATA DE NASCIMENTO </th>
-                <th scope="col"  class="align-middle text-center"> T. ELEITOR </th>
-                <th scope="col"  class="align-middle text-center"> RUA </th>
-                <th scope="col"  class="align-middle text-center"> NUMERO </th>
-                <th scope="col"  class="align-middle text-center"> BAIRRO </th>
-                <th scope="col"  class="align-middle text-center"> CIDADE </th>
-                <th scope="col"  class="align-middle text-center"> UF </th>
-                <th scope="col"  class="align-middle text-center"> CEP </th>
                 <th scope="col"  class="align-middle text-center"> EMAIL </th>
+                <th scope="col"  class="align-middle text-center"> TELEFONE </th>
             </tr>
     
         </thead>
         <tbody>
             <tr th:each="cliente : ${allcliente}"  class="align-middle text-center">
 
-                <td>
-                    <a th:href="@{/cliente/delete/__${cliente.id}__}" class="btn btn-danger">Delete</a>
-                    <a th:href="@{/alterarCliente/__${cliente.id}__}" class="btn btn-danger">Atualizar</a>
-                </td>
+
+                   <td> <a th:href="@{/cliente/delete/__${cliente.id}__}" class="btn btn-danger">Deletar</a> </td>
+                   <td> <a th:href="@{/alterarCliente/__${cliente.id}__}" class="btn btn-danger">Alterar</a> </td>
+
                 <td th:text="${cliente.id}"> </td>
-                <td th:text="${cliente.empresa}"> </td>
-                <td th:text="${cliente.cnpj}"> </td>
-                <td th:text="${cliente.e_cac}"> </td>
-                <td th:text="${cliente.n_social}"> </td>
                 <td th:text="${cliente.cpf}"> </td>
                 <td th:text="${cliente.rg}"> </td>
                 <td th:text="${cliente.dataDeNascimento}"> </td>
-                <td th:text="${cliente.tituloDeEleitor}"> </td>
-                <td th:text="${cliente.rua}"> </td>
-                <td th:text="${cliente.numero}"> </td>
-                <td th:text="${cliente.bairro}"> </td>
-                <td th:text="${cliente.cidade}"> </td>
-                <td th:text="${cliente.estado}"> </td>
-                <td th:text="${cliente.cep}"> </td>
                 <td th:text="${cliente.email}"> </td>
+                <td th:text="${cliente.telefone}"> </td>
 
             </tr>
         </tbody>

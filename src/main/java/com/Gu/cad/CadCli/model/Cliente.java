@@ -17,13 +17,6 @@ public class Cliente {
     @Id
     private long id;
 
-
-
-    //DADOS DO CLIENTE
-
-    //@Column
-    //private String cliente;
-
     @Column
     private String cpf;
 
@@ -33,56 +26,15 @@ public class Cliente {
     @Column
     private String dataDeNascimento;
 
- //   @Column
-  //  private String estadoCivil;
-
-    @Column
-    private String tituloDeEleitor;
-
-   // @Column
-   // private String pis;
-
     @Column
     private String email;
 
-
-
-    // DADOS DA EMPRESA
-
     @Column
-    private String empresa;
-
-    @Column
-    private String cnpj;
-
-
-    @Column
-    private String e_cac;
-
-    @Column
-    private String n_social;
+    private String telefone;
 
 
 
-    //DADOS DE ENDEREÇO
 
-    @Column
-    private String rua;
-
-    @Column
-    private String numero;
-
-    @Column
-    private String bairro;
-
-    @Column
-    private String cidade;
-
-    @Column
-    private String estado;
-
-    @Column
-    private String cep;
 
 
 }
