@@ -20,13 +20,12 @@ public class LoginController {
         String senha = login.getSenha();
 
         if ("teste@teste.com".equals(email) && "123456".equals(senha) ){
-            return "redirect:/clientes";
+            return "redirect:/client";
         }
         model.addAttribute("message", "Dados invalidos");
         return "loginIndex";
 
     }
-
 
 
 }

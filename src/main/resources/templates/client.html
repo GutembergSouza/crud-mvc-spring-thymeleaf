@@ -21,10 +21,10 @@
         <div class="collapse navbar-collapse" id="textoNavbar">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#" th:href="@{/clientes}">Clientes<span class="sr-only">(Página atual)</span></a>
+              <a class="nav-link" href="#" th:href="@{/client}">Clientes<span class="sr-only">(Página atual)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" th:href="@{/novo-cliente}">Novo</a>
+              <a class="nav-link" href="#" th:href="@{/newClient}">Novo</a>
             </li>
           </ul>
           <span class="navbar-text">
@@ -47,7 +47,7 @@
                 <th scope="col"  colspan="2"  class="align-middle text-center"> Ações </th>
                 <th scope="col"  class="align-middle text-center"> ID </th>
                 <th scope="col"  class="align-middle text-center"> CPF </th>
-                <th scope="col"  class="align-middle text-center"> RG </th>
+                <th scope="col"  class="align-middle text-center"> NOME </th>
                 <th scope="col"  class="align-middle text-center"> DATA DE NASCIMENTO </th>
                 <th scope="col"  class="align-middle text-center"> EMAIL </th>
                 <th scope="col"  class="align-middle text-center"> TELEFONE </th>
@@ -63,7 +63,7 @@
 
                 <td th:text="${cliente.id}"> </td>
                 <td th:text="${cliente.cpf}"> </td>
-                <td th:text="${cliente.rg}"> </td>
+                <td th:text="${cliente.name}"> </td>
                 <td th:text="${cliente.dataDeNascimento}"> </td>
                 <td th:text="${cliente.email}"> </td>
                 <td th:text="${cliente.telefone}"> </td>

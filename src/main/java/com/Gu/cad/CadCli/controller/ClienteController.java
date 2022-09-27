@@ -18,31 +18,50 @@ public class ClienteController {
     @Autowired
     ClienteService service;
 
-    @GetMapping("/clientes")
-    public ModelAndView clientes(){
-        return service.clientes();
+
+    /**
+     *
+     * @return page whit all registers of the database
+     */
+    @GetMapping("/client")
+    public ModelAndView clients(){
+        return service.clients();
     }
 
-    @GetMapping("/novo-cliente")
-    public String createCliente(Model model){
-        return service.createCliente(model);
+    /**
+     * render the data entry page to the user input the register.
+     * @param model m
+     * @return
+     */
+    @GetMapping("/newClient")
+    public String newCliente(Model model){
+        return service.renderClient(model);
     }
 
-    @PostMapping("/createCliente")
-    public String createCliente(@Valid @ModelAttribute Cliente cliente, BindingResult result, RedirectAttributes redirect){
-        return service.createCliente(cliente, result, redirect);
+     /**
+     * SAVE a client received as a param
+     * @param cliente
+     * @param result
+     * @param redirect
+     * @return
+     */
+    @PostMapping("/saveClient")
+    public String saveCliente(@Valid @ModelAttribute Cliente cliente, BindingResult result, RedirectAttributes redirect){
+        return service.save(cliente, result, redirect);
     }
+
+
 
     @GetMapping("/alterarCliente/{id}")
     public ModelAndView alterarCliente(@PathVariable(name="id") long id){
 
-        return service.clienteById(id);
-    }
-    @PostMapping("/alterarCliente/{id}")
-    public String alterarCliente(@Valid @ModelAttribute Cliente cliente, BindingResult result, RedirectAttributes redirect, @PathVariable long id){
-        return service.createCliente(cliente, result, redirect);
+        return service.updateById(id);
     }
 
+    @PostMapping("/alterarCliente/{id}")
+    public String alterarCliente(@Valid @ModelAttribute Cliente cliente, BindingResult result, RedirectAttributes redirect, @PathVariable long id){
+        return service.save(cliente, result, redirect);
+    }
 
 
     @GetMapping("/cliente/delete/{id}")

@@ -15,33 +15,49 @@ public class ClienteService {
     @Autowired
     ClienteRepository repo;
 
-    // getmaping (/clientes)
-    public ModelAndView clientes(){
+    /**
+     * return all clients to table at main page
+     * @return
+     */
+    public ModelAndView clients(){
 
         final ModelAndView mv = new ModelAndView();
-        mv.setViewName("cliente");
+        mv.setViewName("client");
         mv.addObject("allcliente", repo.findAll());
 
         return mv;
     }
 
-
-    public String createCliente(Model m){
+    /**
+     * Render a model for the entry page to inut of data.
+     * @param  m
+     * @return
+     */
+    public String renderClient(Model m){
         m.addAttribute("cliente", new Cliente());
 
-        return "novo-cliente";
+        return "newClient";
     }
 
-    public String createCliente(Cliente cliente, BindingResult result, RedirectAttributes redirect){
+    /**
+     * save a client received as a parameter
+     * @param cliente
+     * @param result
+     * @param redirect
+     * @return
+     */
+    public String save(Cliente cliente, BindingResult result, RedirectAttributes redirect){
         if(result.hasErrors()){
-            return "novo-cliente";
+            redirect.addFlashAttribute("alertClass","alert-error  alert-dismissible ");
+            redirect.addFlashAttribute("message","Cliente nao cadastrado!");
+            return "newClient";
         }
 
         repo.save(cliente);
         redirect.addFlashAttribute("alertClass","alert-success  alert-dismissible ");
         redirect.addFlashAttribute("message","Cliente cadastrado com sucesso!");
 
-        return "redirect:/clientes";
+        return "redirect:/client";
     }
 
     public String deleteCliente(String id, RedirectAttributes rd){
@@ -49,33 +65,33 @@ public class ClienteService {
         repo.deleteById(Long.parseLong(id));
         rd.addFlashAttribute("alertClass","alert-success  alert-dismissible ");
         rd.addFlashAttribute("message" , "Deletado Com Sucesso!");
-        return  "redirect:/clientes";
+        return  "redirect:/client";
     }
 
 
 
 
 
-    public ModelAndView clienteById(long id) {
+    public ModelAndView updateById(long id) {
 
         final ModelAndView mv = new ModelAndView();
-        mv.setViewName("alterarCliente");
+        mv.setViewName("updateClient");
         mv.addObject("cliente", repo.getById(id));
 
         return mv;
     }
 
-    public String alterarCliente(Cliente cliente, BindingResult result, RedirectAttributes redirect, long id){
+    /*public String alterarCliente(Cliente cliente, BindingResult result, RedirectAttributes redirect, long id){
         if(result.hasErrors()){
             System.out.println(result.getAllErrors());
-            return "alterarCliente";
+            return "updateClient";
         }
 
         repo.save(cliente);
         redirect.addFlashAttribute("alertClass","alert-success  alert-dismissible ");
         redirect.addFlashAttribute("message","Cliente atualizado com sucesso!");
 
-        return "redirect:/clientes";
-    }
+        return "redirect:/client";
+    }*/
 
 }
